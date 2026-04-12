@@ -13,6 +13,8 @@ export const authenticate = (req, res, next) => {
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET)
     req.user = payload
+    console.log(payload);
+    
     next()
   } catch {
     return res.status(401).json(generateResponse(401, false, 'Token inválido o expirado'))
@@ -21,6 +23,8 @@ export const authenticate = (req, res, next) => {
 
 export const authorize = (...roles) => (req, res, next) => {
   if (!roles.includes(req.user?.role)) {
+    console.log(req.user);
+    
     return res.status(403).json(generateResponse(403, false, 'No tienes permiso para esta acción'))
   }
   next()
