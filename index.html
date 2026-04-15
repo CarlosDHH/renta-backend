@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ETHEREAL | Precision in Connectivity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#5f5e5e",
+                        "on-primary-container": "#525151",
+                        "surface-bright": "#f9f9fb",
+                        "secondary": "#0060ad",
+                        "on-background": "#2d3338",
+                        "on-tertiary-container": "#57585d",
+                        "tertiary": "#5e5f63",
+                        "outline-variant": "#acb3b8",
+                        "on-tertiary-fixed": "#45464a",
+                        "secondary-dim": "#005498",
+                        "surface-container-highest": "#dde3e9",
+                        "surface-container-lowest": "#ffffff",
+                        "error-dim": "#4e0309",
+                        "surface-variant": "#dde3e9",
+                        "inverse-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#5c5b5b",
+                        "on-surface-variant": "#596065",
+                        "surface-container": "#ebeef2",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary-fixed-dim": "#e0dfe4",
+                        "on-secondary-fixed": "#004076",
+                        "on-tertiary": "#f9f8fe",
+                        "on-secondary-fixed-variant": "#005da7",
+                        "surface-dim": "#d3dbe2",
+                        "primary-fixed-dim": "#d6d4d3",
+                        "on-secondary-container": "#005396",
+                        "tertiary-fixed": "#eeedf3",
+                        "on-primary-fixed": "#403f3f",
+                        "error": "#9f403d",
+                        "primary-container": "#e5e2e1",
+                        "secondary-fixed": "#d4e3ff",
+                        "surface-container-high": "#e4e9ee",
+                        "surface-container-low": "#f2f4f6",
+                        "error-container": "#fe8983",
+                        "on-surface": "#2d3338",
+                        "on-primary": "#faf7f6",
+                        "on-tertiary-fixed-variant": "#626267",
+                        "primary-dim": "#535252",
+                        "on-error-container": "#752121",
+                        "tertiary-dim": "#525357",
+                        "on-secondary": "#f8f8ff",
+                        "surface": "#f9f9fb",
+                        "inverse-surface": "#0c0e10",
+                        "on-error": "#fff7f6",
+                        "inverse-on-surface": "#9c9d9f",
+                        "primary": "#5f5e5e",
+                        "tertiary-container": "#eeedf3",
+                        "secondary-container": "#d4e3ff",
+                        "background": "#f9f9fb",
+                        "outline": "#757c81",
+                        "secondary-fixed-dim": "#bcd6ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-lg flex justify-between items-center px-6 py-4 w-full shadow-[0_12px_40px_rgba(45,51,56,0.06)]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-zinc-600" data-icon="menu">menu</span>
+<span class="text-lg font-black tracking-[-0.04em] text-zinc-800 font-headline">ETHEREAL</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-blue-700 font-semibold font-headline text-sm tracking-tight transition-colors" href="#solutions">Solutions</a>
+<a class="text-zinc-500 hover:text-blue-600 transition-colors font-headline text-sm tracking-tight" href="#internet">Fiber Internet</a>
+<a class="text-zinc-500 hover:text-blue-600 transition-colors font-headline text-sm tracking-tight" href="#products">Product Lab</a>
+<a class="text-zinc-500 hover:text-blue-600 transition-colors font-headline text-sm tracking-tight" href="#news">Latest News</a>
+</nav>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-zinc-600" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center overflow-hidden bg-surface-container-low px-6">
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 py-24">
+<div class="lg:col-span-7 flex flex-col justify-center z-10">
+<span class="font-label text-xs uppercase tracking-[0.2em] text-secondary mb-6 font-semibold">Precision Architecture</span>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-[-0.04em] text-on-surface mb-8 leading-[1.1]">
+                        Connectivity <br/> <span class="text-secondary">Redefined</span> by Light.
+                    </h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-xl mb-12 leading-relaxed">
+                        Experience the ethereal speed of fiber optics. We bridge the gap between global networks and local precision through our curated infrastructure.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-md font-label font-bold text-sm tracking-wide transition-all hover:bg-primary-dim active:opacity-70 shadow-lg shadow-primary/10">
+                            EXPLORE INFRASTRUCTURE
+                        </button>
+<button class="border-b-2 border-transparent hover:border-secondary text-on-surface px-8 py-4 font-label font-bold text-sm tracking-wide transition-all flex items-center gap-2">
+                            VIEW NETWORK MAP <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
+<img alt="Advanced technology infrastructure" class="w-full h-full object-cover" data-alt="Close-up of glowing fiber optic cables in a dark high-tech server room with blue and silver ambient light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALvgpWTNgO-QtDKJS5HCZ0jpaTdBDkq2sylkcd2Svi_FvlMl8eYo7R1YBqrbOs_pU0aDyhW8XnnszLkEAsWPKFnl059IVxA-JMeEXI5KkcEoUkQ0EDrwy83G4m4AqMgmz9dHBno4HqP49bUwY3TtdkBZ3QVyglDXFhRBRutNL0PGjPRptfatOmiXzNnckH4rwkXsRv9NMbESqLo61ikga5fuh8ZaoZCu24plGypD0gWidbKIGb_OFCSSfNGQWxuxVdHZgBj3Sy2VY"/>
+</div>
+<div class="absolute -bottom-8 -left-8 glass-effect bg-surface-container-lowest/80 p-8 rounded-xl shadow-xl max-w-xs hidden md:block">
+<div class="text-secondary font-headline font-black text-4xl mb-1">10Gbps</div>
+<div class="text-on-surface-variant text-sm font-medium">Symmetric standard throughout the global backbone network.</div>
+</div>
+</div>
+</div>
+<!-- Background Trace Line -->
+<div class="absolute top-0 right-1/4 w-[2px] h-full bg-secondary-fixed-dim/30 -z-10"></div>
+</section>
+<!-- Services Section (Bento Grid) -->
+<section class="py-32 px-6 bg-surface" id="solutions">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20 text-center md:text-left">
+<span class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant mb-4 block">Ecosystem</span>
+<h2 class="font-headline text-4xl font-bold tracking-tight text-on-surface">Precision Solutions</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-surface-container-lowest p-10 rounded-xl shadow-sm border border-outline-variant/10 flex flex-col justify-between min-h-[400px]">
+<div>
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="biotech">biotech</span>
+<h3 class="font-headline text-2xl font-bold mb-4">Enterprise Neural Networks</h3>
+<p class="text-on-surface-variant leading-relaxed max-w-md">Private cloud integration with latency-agnostic routing for global scale operations.</p>
+</div>
+<div class="pt-8">
+<a class="text-secondary font-bold text-sm tracking-wider hover:underline underline-offset-8" href="#">LEARN MORE</a>
+</div>
+</div>
+<div class="bg-primary text-on-primary p-10 rounded-xl flex flex-col justify-between">
+<span class="material-symbols-outlined text-4xl mb-6" data-icon="router">router</span>
+<div>
+<h3 class="font-headline text-2xl font-bold mb-4">Next-Gen Fiber</h3>
+<p class="text-primary-fixed/80 leading-relaxed">Pure light transmission technology for residential hubs.</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-10 rounded-xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="settings_input_component">settings_input_component</span>
+<h3 class="font-headline text-xl font-bold mb-4">Custom Hardware</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Proprietary terminal units designed for minimal power footprint.</p>
+</div>
+<div class="md:col-span-2 bg-surface-container-highest p-10 rounded-xl flex items-center gap-12">
+<div class="hidden md:block w-1/3 aspect-square rounded-lg overflow-hidden">
+<img alt="Global connectivity" class="w-full h-full object-cover" data-alt="Digital representation of global internet connectivity with glowing nodes and lines on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPofIl5yNrb5ZIMiOQ4FBMt_3XmE01CqBCGRnRW9lzhmV3LbyNHmB4kmEDJ4ojY_DkS3d7Ys4FiKI54TN5Yn9fzHhVlXkP2fVwqLedBdDz6zNCDrFELrTen_ahqliiGwRPPBdkjlLE7BKqueAE2ELFOe0ZI0OSAUKYIeWhuKFGuhI_ayhY5GMDaEFjkKREsBxENiNBOsOMC_UwRrU4rCaBKpsqOlKhL50kXOPe7_TBtDCQzyhheAnQn69ybajBpmecIow2NxvroFo"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline text-2xl font-bold mb-4">Global Peering</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">Direct access to the world's most critical data centers with zero intermediate hops.</p>
+<button class="bg-white text-on-surface px-6 py-3 rounded-md font-label font-bold text-xs shadow-sm">VIEW TOPOLOGY</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Lab Section -->
+<section class="py-32 bg-surface-container-low px-6" id="products">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-2xl">
+<span class="font-label text-xs uppercase tracking-[0.2em] text-secondary mb-4 block">Product Lab</span>
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tight">The Hardware of Silence.</h2>
+</div>
+<p class="text-on-surface-variant md:w-1/3">Our devices are designed to disappear into your environment, providing power without the noise.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<div class="group cursor-pointer">
+<div class="aspect-video bg-surface-container-lowest rounded-xl mb-8 overflow-hidden flex items-center justify-center p-12 transition-transform duration-500 hover:scale-[1.02] shadow-[0_20px_60px_rgba(45,51,56,0.04)]">
+<img alt="Minimalist router design" class="w-full h-full object-contain" data-alt="Sleek minimalist silver router with a single white status light on a clean white marble surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwChGdDTAIaiiou-PN64oE-OX4hE8i1OhSRnqtjCMir0lhGI0IIsp0NTjwoQ0M9uRrec1dOnnnXLas6cvIIqmQSHcYol2I60dtyCaPt_0XMrdme8EbwYhXEOVHLNyYAPtYKvD8Ws4eDOIXebVwPbkc1gviYOiAp-fR7oSk11gBWzwzIjme1aH8to0i9VOZxLh_XPzGoXB-Dah8jz_rkikmUleHm0cufc9KmOxBaQnbVKJ8LZa-DSuq3ABaMD2Mn4zAWHgYIfR9I3E"/>
+</div>
+<h4 class="font-headline text-xl font-bold mb-2">Ethereal Hub One</h4>
+<p class="text-on-surface-variant text-sm mb-4">The core of your home's digital nervous system.</p>
+<span class="text-secondary font-black text-lg">$299</span>
+</div>
+<div class="group cursor-pointer mt-12">
+<div class="aspect-video bg-surface-container-lowest rounded-xl mb-8 overflow-hidden flex items-center justify-center p-12 transition-transform duration-500 hover:scale-[1.02] shadow-[0_20px_60px_rgba(45,51,56,0.04)]">
+<img alt="Smart antenna system" class="w-full h-full object-contain" data-alt="Matte charcoal gray cylindrical wifi extender with subtle texture and soft ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwojwFDTBExEF9C7Kfu_IjjRq5iv-668OUUyfsG3zB9ljVeqM0daL28UPPeBCs44XxbpYRz_2YpWdaC3Fy5lPrNrUhGyOUYbLsBAZuMBsiy6LEqlLmoXQo_YXJ7L0smfTGG_Lm-Us6s6aZeNOV7IeZuEO2WbqXNyFBi3nCn2GvYJgHvrF7hoYON51A6YGuUT5g1R65ssYSgADWsJAQ8vvst0YdoBX8U3LxLXCB6UkyGkCmGyrQVJ9IuRIG_mHh3vg78hQROadZcjQ"/>
+</div>
+<h4 class="font-headline text-xl font-bold mb-2">Beacon Node</h4>
+<p class="text-on-surface-variant text-sm mb-4">Extended range without the bandwidth degradation.</p>
+<span class="text-secondary font-black text-lg">$149</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Internet Tiers -->
+<section class="py-32 px-6" id="internet">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-24">
+<h2 class="font-headline text-4xl font-bold mb-6">Tiered Connectivity</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Simple, transparent, and built for your specific data appetite.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-outline-variant/20 rounded-xl overflow-hidden shadow-xl">
+<!-- Tier 1 -->
+<div class="p-12 bg-white flex flex-col border-r border-outline-variant/10">
+<div class="mb-8">
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Essential</span>
+<div class="flex items-baseline mt-4">
+<span class="text-5xl font-headline font-black">1.2</span>
+<span class="text-xl font-headline font-bold ml-1 text-on-surface-variant">Gbps</span>
+</div>
+</div>
+<ul class="space-y-4 mb-12 flex-1">
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Unlimited Data</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Hub One Included</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Standard Support</li>
+</ul>
+<div class="text-3xl font-headline font-bold mb-8">$70<span class="text-sm font-normal text-on-surface-variant">/mo</span></div>
+<button class="w-full py-4 border border-on-surface hover:bg-on-surface hover:text-white transition-colors font-label font-bold text-xs tracking-widest uppercase">Select Plan</button>
+</div>
+<!-- Tier 2 -->
+<div class="p-12 bg-surface-container-low flex flex-col relative">
+<div class="absolute top-4 right-4 bg-secondary text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">Most Popular</div>
+<div class="mb-8">
+<span class="text-xs font-label uppercase tracking-widest text-secondary font-bold">Advanced</span>
+<div class="flex items-baseline mt-4">
+<span class="text-5xl font-headline font-black">5.0</span>
+<span class="text-xl font-headline font-bold ml-1 text-on-surface-variant">Gbps</span>
+</div>
+</div>
+<ul class="space-y-4 mb-12 flex-1">
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Symmetric Uploads</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Static IP Available</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Priority Routing</li>
+</ul>
+<div class="text-3xl font-headline font-bold mb-8">$120<span class="text-sm font-normal text-on-surface-variant">/mo</span></div>
+<button class="w-full py-4 bg-primary text-white hover:bg-primary-dim transition-colors font-label font-bold text-xs tracking-widest uppercase shadow-lg shadow-primary/20">Select Plan</button>
+</div>
+<!-- Tier 3 -->
+<div class="p-12 bg-white flex flex-col border-l border-outline-variant/10">
+<div class="mb-8">
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Enterprise</span>
+<div class="flex items-baseline mt-4">
+<span class="text-5xl font-headline font-black">10</span>
+<span class="text-xl font-headline font-bold ml-1 text-on-surface-variant">Gbps</span>
+</div>
+</div>
+<ul class="space-y-4 mb-12 flex-1">
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Zero Latency Routing</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> 24/7 Concierge Tech</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Custom Buildout</li>
+</ul>
+<div class="text-3xl font-headline font-bold mb-8">$250<span class="text-sm font-normal text-on-surface-variant">/mo</span></div>
+<button class="w-full py-4 border border-on-surface hover:bg-on-surface hover:text-white transition-colors font-label font-bold text-xs tracking-widest uppercase">Contact Sales</button>
+</div>
+</div>
+</div>
+</section>
+<!-- News Section -->
+<section class="py-32 px-6 bg-surface-container-highest/30" id="news">
+<div class="max-w-7xl mx-auto">
+<div class="flex items-center justify-between mb-16">
+<h2 class="font-headline text-3xl font-bold tracking-tight">Latest News</h2>
+<a class="text-on-surface-variant text-sm font-bold border-b border-on-surface-variant/30 hover:border-secondary transition-colors" href="#">View All Articles</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- News Item 1 -->
+<article class="flex flex-col">
+<div class="aspect-[16/10] bg-zinc-200 rounded-lg overflow-hidden mb-6">
+<img alt="Latest chipset news" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" data-alt="Close-up photo of a modern gold and silver computer processor with intricate circuits and glowing light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA_iToGAtcgPmX5UzBXYf0tCZ7NIOV6Ho3Lyf3INY7Rso_PFqS9eblw5nd8fo9qWxPkj6yI1CxN4mLsK8PAB26mkWUoFuRPRKVa6DXl09keZmqQr1mxslO6dQxEh2RLko4S4nlqjqanvHbh_SapnKLGFYZPgyxD28S4-7kEzACxu6vatD4v1L_96QvMtMS6SKUbzfQd4l0xfSeHXCsh6a_ioRFc56TaqP7d-4Pl0k-f7Yqg7_FQnXstI_urGTkZ3UEUqVgyo0H1Eg"/>
+</div>
+<div class="flex gap-4 mb-3">
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary bg-secondary-container px-2 py-0.5 rounded">Network</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">April 12, 2024</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-4 leading-snug">Achieving Sub-1ms Latency in Urban Centers</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2">How our new photonic switching technology is revolutionizing data transfer speeds in high-density environments.</p>
+</article>
+<!-- News Item 2 -->
+<article class="flex flex-col">
+<div class="aspect-[16/10] bg-zinc-200 rounded-lg overflow-hidden mb-6">
+<img alt="Fiber optic cables" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" data-alt="Hundreds of colorful fiber optic cables glowing in a dark server room creating a tunnel of light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCKGiUZH6PJBPA8GApd67INBoraJyU5LdaFcZooTLAzDl8orJa-uT0cakwXh4oNoKv_568Cb0NkWu2dadq2t_G8gLZDW3U6AGPKHb8Yv1I9VoV9nMDaLEenNGW6Y_W32qd6bvQx2OKJSW9pz-JOh4JPo5r_iCxxoc3tXl2zHcOMsPDBG0kvFiSvev6KjAaWFY8Rebjpox8hBKx7Yjs7JSWwGuk7GB_5aJ0xMFkmIr6_joQZGlKITFKCYuH8Uvjek-DFVyCeQL-jUk"/>
+</div>
+<div class="flex gap-4 mb-3">
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary bg-secondary-container px-2 py-0.5 rounded">Expansion</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">April 05, 2024</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-4 leading-snug">The Silver Backbone: Expanding into the Pacific Northwest</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2">Our latest infrastructure expansion brings literal light-speed internet to three new major tech hubs.</p>
+</article>
+<!-- News Item 3 -->
+<article class="flex flex-col">
+<div class="aspect-[16/10] bg-zinc-200 rounded-lg overflow-hidden mb-6">
+<img alt="Data visualization" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" data-alt="Modern high-resolution screen showing complex data visualizations with blue and white glowing lines and charts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVtUDzbRiiwVZC69tuKLhfzRTpy1LoZs0uxFgKSu2mJhswWKcYZy16JAOnktydqCwpTpKSIZ-MzuXl9uhyn68mdKxZfH0cpv5X4A95Ukj-HQ9D30dQPH9QGO1TEwBC6GmHVnBde10b6LW1CfF-4IloCf5xi8jx9fiU1j_fRPgmf7-1_t2rW0loX1DUfjhI-XYWu2-nVn4Rtd_AWSm3HlAeGUYJxd7FCq0VDmqw1dkfVvw8tWYuKSx35rDgYsOLOaWQXtaW3Z7HAIU"/>
+</div>
+<div class="flex gap-4 mb-3">
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary bg-secondary-container px-2 py-0.5 rounded">Support</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">March 28, 2024</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-4 leading-snug">Ethereal OS: Now with Real-Time Traffic Shaping</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2">The latest software update for Ethereal Hub owners introduces AI-driven prioritization for remote work.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 px-6 bg-surface" id="contact">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+<div>
+<h2 class="font-headline text-4xl font-extrabold mb-8 tracking-tight">Direct Access.</h2>
+<p class="text-on-surface-variant text-lg mb-12">Whether you're looking for enterprise-grade fiber or need support with your current setup, our team is standing by.</p>
+<div class="space-y-8">
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-secondary" data-icon="chat_bubble_outline">chat_bubble_outline</span>
+<div>
+<h4 class="font-headline font-bold text-sm uppercase tracking-widest mb-1">Live Concierge</h4>
+<p class="text-on-surface-variant">Chat with us directly through the Ethereal portal.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-secondary" data-icon="help_outline">help_outline</span>
+<div>
+<h4 class="font-headline font-bold text-sm uppercase tracking-widest mb-1">Knowledge Hub</h4>
+<p class="text-on-surface-variant">Self-service documentation and technical blueprints.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-secondary" data-icon="article">article</span>
+<div>
+<h4 class="font-headline font-bold text-sm uppercase tracking-widest mb-1">Corporate HQ</h4>
+<p class="text-on-surface-variant">One Connectivity Plaza, Suite 400<br/>San Francisco, CA 94105</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 md:p-12 rounded-xl shadow-sm">
+<form class="space-y-8">
+<div>
+<label class="block text-xs font-label font-bold uppercase tracking-widest mb-4">Full Name</label>
+<input class="w-full bg-transparent border-0 border-b-2 border-surface-container-high focus:ring-0 focus:border-secondary transition-colors p-0 pb-4 placeholder:text-zinc-400" placeholder="Avery Sterling" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-label font-bold uppercase tracking-widest mb-4">Work Email</label>
+<input class="w-full bg-transparent border-0 border-b-2 border-surface-container-high focus:ring-0 focus:border-secondary transition-colors p-0 pb-4 placeholder:text-zinc-400" placeholder="avery@example.com" type="email"/>
+</div>
+<div>
+<label class="block text-xs font-label font-bold uppercase tracking-widest mb-4">Inquiry Type</label>
+<select class="w-full bg-transparent border-0 border-b-2 border-surface-container-high focus:ring-0 focus:border-secondary transition-colors p-0 pb-4">
+<option>New Infrastructure Inquiry</option>
+<option>Technical Support</option>
+<option>Partnership Proposal</option>
+<option>Other</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-label font-bold uppercase tracking-widest mb-4">Briefly Describe Your Needs</label>
+<textarea class="w-full bg-transparent border-0 border-b-2 border-surface-container-high focus:ring-0 focus:border-secondary transition-colors p-0 pb-4 placeholder:text-zinc-400" placeholder="Tell us about your space or project..." rows="3"></textarea>
+</div>
+<button class="w-full py-5 bg-primary text-white font-label font-bold text-sm tracking-widest uppercase rounded-md shadow-lg shadow-primary/10 hover:bg-primary-dim active:opacity-70 transition-all">
+                            INITIALIZE CONTACT
+                        </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-zinc-100 py-16 px-6 mt-24">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto">
+<div>
+<span class="font-headline font-black text-zinc-800 tracking-tighter text-xl mb-6 block">ETHEREAL</span>
+<p class="font-inter text-xs tracking-normal leading-relaxed text-zinc-500 max-w-sm">
+                    © 2024 Ethereal Tech Editorial. Precision in Connectivity. 
+                    <br/><br/>
+                    We build the bridges of light that sustain the modern digital economy. Our infrastructure is designed for longevity, performance, and atmospheric elegance.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<h5 class="font-label font-bold text-[10px] uppercase tracking-[0.2em] text-zinc-800 mb-6">Infrastructure</h5>
+<ul class="space-y-4">
+<li><a class="text-zinc-400 hover:text-zinc-800 transition-colors text-xs font-inter" href="#">Network Map</a></li>
+<li><a class="text-zinc-400 hover:text-zinc-800 transition-colors text-xs font-inter" href="#">System Status</a></li>
+<li><a class="text-zinc-400 hover:text-zinc-800 transition-colors text-xs font-inter" href="#">Hardware Lab</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label font-bold text-[10px] uppercase tracking-[0.2em] text-zinc-800 mb-6">Legal &amp; Core</h5>
+<ul class="space-y-4">
+<li><a class="text-zinc-400 hover:text-zinc-800 transition-colors text-xs font-inter" href="#">Privacy Policy</a></li>
+<li><a class="text-zinc-400 hover:text-zinc-800 transition-colors text-xs font-inter" href="#">Service Terms</a></li>
+<li><a class="text-zinc-400 hover:text-zinc-800 transition-colors text-xs font-inter" href="#">Accessibility</a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

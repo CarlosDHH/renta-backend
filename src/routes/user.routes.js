@@ -9,7 +9,7 @@ router.use(authenticate)
 router.get('/',     authorize('ADMIN'),              userController.getAll)
 router.get('/:id',  authorize('ADMIN'),              userController.getById)
 router.post('/',    authorize('ADMIN'),              userController.create)
-router.put('/:id',  authorize('ADMIN'),              userController.update)
+router.patch('/:id',  authorize('ADMIN'),              userController.update)
 router.delete('/:id', authorize('ADMIN'),            userController.remove)
 
 export default router

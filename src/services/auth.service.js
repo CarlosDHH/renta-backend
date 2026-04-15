@@ -17,7 +17,7 @@ const generateTokens = (payload) => ({
 
 export const login = async (email, password) => {
   try {
-    const user = await prisma.user.findUnique({
+    const user = await prisma.user.findFirst({
       where: { email, deleted: false },
     })
 
