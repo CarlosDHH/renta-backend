@@ -11,6 +11,8 @@ import customerRoutes from './routes/customer.routes.js'
 import planRoutes from './routes/plan.routes.js'
 import userRoutes from './routes/user.routes.js'
 import receiptRoutes from './routes/receipt.routes.js'
+import landingRoutes from './routes/landing.routes.js'
+import { submitContact } from './controllers/landing.controller.js'
 
 
 import { notFound } from './middlewares/notFound.js'
@@ -46,6 +48,11 @@ app.use('/api/customers', customerRoutes)
 app.use('/api/plans', planRoutes)
 
 app.use('/api/users', userRoutes)
+
+app.use('/api/landing', landingRoutes)
+
+app.post('/api/contact', submitContact)
+
 // Health check
 app.get('/api/health', (_, res) => res.json({ status: 'ok', env: process.env.NODE_ENV }))
 

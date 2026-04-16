@@ -1,6 +1,10 @@
+import { DateTime } from 'luxon'
 import prisma from '../config/prisma.js'
 import { generateResponse } from '../utils/handleResponse.js'
 import { paginate, paginatedResponse } from '../utils/queryHelpers.js'
+
+const TIMEZONE = 'America/Mexico_City'
+const parseDate = (dateStr) => DateTime.fromISO(dateStr, { zone: TIMEZONE }).toJSDate()
 
 const baseWhere = { deleted: false }
 
@@ -83,7 +87,7 @@ export const create = async (data) => {
       data: {
         customerId: data.customerId,
         planId: data.planId,
-        startDate: data.startDate ? new Date(data.startDate) : new Date(),
+        startDate: data.startDate ? parseDate(data.startDate) : new Date(),
       },
       include: {
         customer: { select: { id: true, name: true, lastName: true } },

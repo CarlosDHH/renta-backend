@@ -45,9 +45,9 @@ model User {
   active       Boolean   @default(true)
   deleted      Boolean   @default(false)
   loginAttempts  Int       @default(0)   @map("login_attempts")
-  blockedUntil   DateTime?               @map("blocked_until")
-  createdAt    DateTime  @default(now()) @map("created_at")
-  updatedAt    DateTime  @updatedAt      @map("updated_at")
+  blockedUntil   DateTime?               @map("blocked_until")   @db.Timestamptz(3)
+  createdAt    DateTime  @default(now()) @map("created_at")       @db.Timestamptz(3)
+  updatedAt    DateTime  @updatedAt      @map("updated_at")        @db.Timestamptz(3)
 
   payments     Payment[]
 
@@ -62,11 +62,11 @@ model Customer {
   phone        String
   municipality String
   city         String
-  lastPaidPeriod  DateTime?  @map("last_paid_period")
+  lastPaidPeriod  DateTime?  @map("last_paid_period")  @db.Timestamptz(3)
   active       Boolean    @default(true)
   deleted      Boolean    @default(false)
-  createdAt    DateTime   @default(now()) @map("created_at")
-  updatedAt    DateTime   @updatedAt      @map("updated_at")
+  createdAt    DateTime   @default(now()) @map("created_at")  @db.Timestamptz(3)
+  updatedAt    DateTime   @updatedAt      @map("updated_at")   @db.Timestamptz(3)
 
   contracts    Contract[]
 
@@ -81,8 +81,8 @@ model Plan {
   description String?
   active      Boolean    @default(true)
   deleted     Boolean    @default(false)
-  createdAt   DateTime   @default(now()) @map("created_at")
-  updatedAt   DateTime   @updatedAt      @map("updated_at")
+  createdAt   DateTime   @default(now()) @map("created_at")  @db.Timestamptz(3)
+  updatedAt   DateTime   @updatedAt      @map("updated_at")   @db.Timestamptz(3)
 
   contracts   Contract[]
 
@@ -94,12 +94,12 @@ model Contract {
   id          String         @id @default(uuid())
   customerId  String         @map("customer_id")
   planId      String         @map("plan_id")
-  startDate   DateTime       @map("start_date")
-  endDate     DateTime?      @map("end_date")
+  startDate   DateTime       @map("start_date")               @db.Timestamptz(3)
+  endDate     DateTime?      @map("end_date")                 @db.Timestamptz(3)
   status      ContractStatus @default(ACTIVE)
   deleted     Boolean        @default(false)
-  createdAt   DateTime       @default(now()) @map("created_at")
-  updatedAt   DateTime       @updatedAt      @map("updated_at")
+  createdAt   DateTime       @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime       @updatedAt      @map("updated_at")  @db.Timestamptz(3)
 
   customer    Customer       @relation(fields: [customerId], references: [id])
   plan        Plan           @relation(fields: [planId], references: [id])
@@ -121,14 +121,14 @@ model Payment {
   amount        Decimal       @db.Decimal(10, 2)
   paymentType   PaymentType   @default(FULL) @map("payment_type")
   balance       Decimal?      @db.Decimal(10, 2)
-  paidAt        DateTime      @default(now()) @map("paid_at")
-  periodFrom    DateTime      @map("period_from")
-  periodTo      DateTime      @map("period_to")
+  paidAt        DateTime      @default(now()) @map("paid_at")     @db.Timestamptz(3)
+  periodFrom    DateTime      @map("period_from")                  @db.Timestamptz(3)
+  periodTo      DateTime      @map("period_to")                    @db.Timestamptz(3)
   paymentMethod PaymentMethod @default(CASH) @map("payment_method")
   notes         String?
   deleted       Boolean       @default(false)
-  createdAt     DateTime      @default(now()) @map("created_at")
-  updatedAt     DateTime      @updatedAt      @map("updated_at")
+  createdAt     DateTime      @default(now()) @map("created_at")   @db.Timestamptz(3)
+  updatedAt     DateTime      @updatedAt      @map("updated_at")    @db.Timestamptz(3)
 
   contract      Contract      @relation(fields: [contractId], references: [id])
   user          User          @relation(fields: [userId], references: [id])
@@ -144,12 +144,99 @@ model Receipt {
   pdfPath         String?           @map("pdf_path")
   sendStatus      ReceiptSendStatus @default(PENDING) @map("send_status")
   recipientPhone  String?           @map("recipient_phone")
-  sentAt          DateTime?         @map("sent_at")
+  sentAt          DateTime?         @map("sent_at")                  @db.Timestamptz(3)
   deleted         Boolean           @default(false)
-  createdAt       DateTime          @default(now()) @map("created_at")
-  updatedAt       DateTime          @updatedAt      @map("updated_at")
+  createdAt       DateTime          @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime          @updatedAt      @map("updated_at")  @db.Timestamptz(3)
 
   payment         Payment           @relation(fields: [paymentId], references: [id])
 
   @@map("receipts")
+}
+
+// ─── Landing CMS ──────────────────────────────────────────────────────────────
+
+enum ContactStatus {
+  NEW
+  READ
+  REPLIED
+}
+
+model LandingConfig {
+  id           String   @id @default(uuid())
+  companyName  String   @map("company_name")
+  tagline      String
+  primaryColor String   @map("primary_color") @db.VarChar(7)
+  accentColor  String   @map("accent_color")  @db.VarChar(7)
+  updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@map("landing_config")
+}
+
+model LandingHero {
+  id             String   @id @default(uuid())
+  badge          String
+  headline       String
+  headlineAccent String   @map("headline_accent")
+  subheadline    String
+  ctaPrimary     String   @map("cta_primary")
+  ctaSecondary   String   @map("cta_secondary")
+  statValue      String   @map("stat_value")
+  statLabel      String   @map("stat_label")
+  updatedAt      DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@map("landing_hero")
+}
+
+model LandingService {
+  id          String   @id @default(uuid())
+  icon        String
+  title       String
+  description String
+  features    Json
+  highlighted Boolean  @default(false)
+  sortOrder   Int      @default(0) @map("sort_order")
+  active      Boolean  @default(true)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@map("landing_services")
+}
+
+model LandingProduct {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  price       Decimal  @db.Decimal(10, 2)
+  imageAlt    String   @map("image_alt")
+  badge       String?
+  sortOrder   Int      @default(0) @map("sort_order")
+  active      Boolean  @default(true)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@map("landing_products")
+}
+
+model LandingNews {
+  id        String   @id @default(uuid())
+  category  String
+  date      String
+  title     String
+  excerpt   String
+  active    Boolean  @default(true)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@map("landing_news")
+}
+
+model LandingContact {
+  id          String        @id @default(uuid())
+  name        String
+  email       String
+  phone       String?
+  serviceType String        @map("service_type")
+  message     String
+  status      ContactStatus @default(NEW)
+  createdAt   DateTime      @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  @@map("landing_contacts")
 }
