@@ -12,6 +12,7 @@ import planRoutes from './routes/plan.routes.js'
 import userRoutes from './routes/user.routes.js'
 import receiptRoutes from './routes/receipt.routes.js'
 import landingRoutes from './routes/landing.routes.js'
+import dashboardRoutes from './routes/dashboard.routes.js'
 import { submitContact } from './controllers/landing.controller.js'
 
 
@@ -50,6 +51,8 @@ app.use('/api/plans', planRoutes)
 app.use('/api/users', userRoutes)
 
 app.use('/api/landing', landingRoutes)
+
+app.use('/api/dashboard', dashboardRoutes)
 
 app.post('/api/contact', submitContact)
 

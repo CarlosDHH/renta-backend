@@ -252,9 +252,9 @@ Query params: `search` (busca en name, lastName, phone, municipality), `active` 
   "name": "string",          // requerido
   "lastName": "string",      // requerido
   "phone": "string",         // requerido
-  "email": "string",         // opcional
-  "municipality": "string",  // opcional
-  "city": "string"           // opcional
+  "municipality": "string",  // requerido
+  "city": "string",          // requerido
+  "email": "string"          // opcional, debe ser único si se envía
 }
 ```
 
@@ -678,6 +678,116 @@ Envío masivo a todos los contratos activos con fecha de vencimiento dentro de 5
   "message": "Recordatorios procesados: 5 enviados, 1 fallidos"
 }
 ```
+
+---
+
+## DASHBOARD `/api/dashboard`
+
+Requiere: `Authorization: Bearer <token>` (cualquier rol autenticado)
+
+---
+
+### GET `/api/dashboard/summary`
+
+Devuelve todos los datos necesarios para construir el dashboard en una sola llamada.
+
+**Query params:**
+
+| Parámetro | Valores | Default | Descripción |
+|-----------|---------|---------|-------------|
+| `months` | `3`, `6`, `12` | `6` | Ventana de meses para la gráfica de ingresos |
+
+**Response 200:**
+
+```json
+{
+  "statusCode": 200,
+  "success": true,
+  "message": "Dashboard obtenido",
+  "data": {
+
+    "kpis": {
+      "activeCustomers": 120,
+      "activeContracts": 118,
+      "newCustomersThisMonth": 8,
+      "revenueThisMonth": 29500.00,
+      "revenueLastMonth": 27800.00,
+      "revenueVariationPercent": 6.12,
+      "totalPaymentsThisMonth": 115,
+      "pendingReceiptsCount": 12
+    },
+
+    "paymentStatus": {
+      "upToDate": 85,
+      "grace": 10,
+      "late": 15,
+      "overdue": 8
+    },
+
+    "revenueByMonth": [
+      { "month": "2025-11", "label": "Nov 2025", "total": 24000.00, "paymentsCount": 96 },
+      { "month": "2025-12", "label": "Dic 2025", "total": 26500.00, "paymentsCount": 106 }
+    ],
+
+    "planDistribution": [
+      { "planId": "uuid", "planName": "Plan 10MB", "price": 250.00, "activeContracts": 45 }
+    ],
+
+    "paymentMethodBreakdown": [
+      { "method": "CASH",     "label": "Efectivo",      "count": 95, "total": 23750.00 },
+      { "method": "TRANSFER", "label": "Transferencia", "count": 18, "total": 4500.00  }
+    ],
+
+    "recentPayments": [
+      {
+        "id": "uuid",
+        "folio": "RNT-2026-000045",
+        "customerName": "Juan García",
+        "planName": "Plan 20MB",
+        "amount": 350.00,
+        "paymentType": "FULL",
+        "paymentMethod": "CASH",
+        "paidAt": "2026-04-15T14:30:00.000Z"
+      }
+    ],
+
+    "overdueCustomers": [
+      {
+        "customerId": "uuid",
+        "customerName": "María López",
+        "phone": "5512345678",
+        "planName": "Plan 10MB",
+        "planPrice": 250.00,
+        "lastPaidPeriod": "2026-01-31T00:00:00.000Z",
+        "monthsOverdue": 3,
+        "estimatedDebt": 750.00
+      }
+    ]
+
+  }
+}
+```
+
+**Descripción de secciones:**
+
+| Sección | Descripción |
+|---------|-------------|
+| `kpis` | Métricas clave del mes actual vs mes anterior |
+| `paymentStatus` | Conteo de clientes activos clasificados por estado de pago |
+| `revenueByMonth` | Ingresos y pagos por mes (N meses, incluye meses con cero) |
+| `planDistribution` | Contratos activos por plan, ordenado por popularidad |
+| `paymentMethodBreakdown` | Desglose de métodos de pago del mes actual (omite métodos sin pagos) |
+| `recentPayments` | Últimos 10 pagos registrados |
+| `overdueCustomers` | Top 10 clientes con más meses de deuda acumulada |
+
+**Lógica de `paymentStatus`** (zona horaria: `America/Mexico_City`):
+
+| Estado | Condición |
+|--------|-----------|
+| `upToDate` | `lastPaidPeriod >= inicio del mes actual` |
+| `grace` | `lastPaidPeriod` cae en el mes anterior Y `día_actual <= 5` |
+| `late` | `lastPaidPeriod` cae en el mes anterior Y `día_actual > 5` |
+| `overdue` | `lastPaidPeriod < inicio del mes anterior` o `null` |
 
 ---
 
