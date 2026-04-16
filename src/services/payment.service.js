@@ -1,6 +1,10 @@
+import { DateTime } from 'luxon'
 import prisma from '../config/prisma.js'
 import { generateResponse } from '../utils/handleResponse.js'
 import { paginate, paginatedResponse } from '../utils/queryHelpers.js'
+
+const TIMEZONE = 'America/Mexico_City'
+const parseDate = (dateStr) => DateTime.fromISO(dateStr, { zone: TIMEZONE }).toJSDate()
 
 const baseWhere = { deleted: false }
 
@@ -87,8 +91,8 @@ export const create = async (data, userId) => {
           amount: data.amount,
           paymentType: data.paymentType ?? 'FULL',
           balance: data.balance ?? null,
-          periodFrom: new Date(data.periodFrom),
-          periodTo: new Date(data.periodTo),
+          periodFrom: parseDate(data.periodFrom),
+          periodTo: parseDate(data.periodTo),
           paymentMethod: data.paymentMethod ?? 'CASH',
           notes: data.notes ?? null,
         },
@@ -116,7 +120,7 @@ export const create = async (data, userId) => {
       if (data.paymentType === 'FULL' || !data.paymentType) {
         await tx.customer.update({
           where: { id: contract.customerId },
-          data: { lastPaidPeriod: new Date(data.periodTo) },
+          data: { lastPaidPeriod: parseDate(data.periodTo) },
         })
       }
 

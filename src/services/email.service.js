@@ -50,6 +50,21 @@ export const sendReceipt = async (customerEmail, receiptData, pdfBuffer) => {
   }
 }
 
+export const sendContactReply = async (to, name, subject, body) => {
+  try {
+    await transporter.sendMail({
+      from: process.env.MAIL_FROM,
+      to,
+      subject,
+      html: `<p>Hola ${name},</p><p>${body}</p>`,
+    })
+
+    return generateResponse(200, true, 'Respuesta enviada')
+  } catch (error) {
+    return generateResponse(500, false, 'Error al enviar respuesta', null, error.message)
+  }
+}
+
 export const sendReminder = async (customerEmail, reminderData) => {
   try {
     await transporter.sendMail({
