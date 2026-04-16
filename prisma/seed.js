@@ -6,10 +6,15 @@ const prisma = new PrismaClient()
 async function main() {
   const passwordHash = await bcrypt.hash('Admin@123', 10)
 
-  const admin = await prisma.user.upsert({
-    where: { email: 'admin@rentas.com' },
-    update: {},
-    create: {
+  const existing = await prisma.user.findFirst({ where: { email: 'admin@rentas.com' } })
+
+  if (existing) {
+    console.log('Usuario ya existe:', existing.email)
+    return
+  }
+
+  const admin = await prisma.user.create({
+    data: {
       name: 'Admin',
       lastName: 'Sistema',
       email: 'admin@rentas.com',
